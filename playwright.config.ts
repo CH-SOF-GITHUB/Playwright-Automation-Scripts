@@ -12,14 +12,16 @@ import { PlaywrightTestConfig } from "@playwright/test";
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-  testMatch: ["tests/recorded.test.ts"],
+  testMatch: ["tests/alert.select.dropdown.test.ts"],
   use: {
     headless: false,
-    screenshot: "only-on-failure",
+    screenshot: "on",
     video: "on"
   },
-  retries: 2,
-  timeout: 60000,
+  /*Timeout for each test in milliseconds. Defaults to 30 seconds.
+    This is a base timeout for all tests. In addition, each test can configure its own timeout with test. setTimeout(timeout) .*/
+  timeout: 70 * 1000,
+  retries: 0,
   reporter: [
     ["dot"],
     [
